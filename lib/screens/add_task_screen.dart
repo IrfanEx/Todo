@@ -208,7 +208,8 @@ class _AddTaskSreenState extends State<AddTaskSreen> {
                         ),
                       ),
                       widget.task == null
-                          ? Container(
+                          ? SizedBox.shrink()
+                          : Container(
                               margin: EdgeInsets.symmetric(vertical: 20),
                               height: 50,
                               width: double.infinity,
@@ -226,7 +227,6 @@ class _AddTaskSreenState extends State<AddTaskSreen> {
                                 ),
                               ),
                             )
-                          : SizedBox.shrink()
                     ],
                   ),
                 )

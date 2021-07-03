@@ -3,16 +3,20 @@ import 'package:flutter/material.dart';
 class TodoFormWidget extends StatelessWidget {
   final String title;
   final String description;
+  final String datetime;
   final ValueChanged<String> onChangedTitle;
   final ValueChanged<String> onChangedDescription;
+  final ValueChanged<String> onChangedDateTime;
   final VoidCallback onSavedTodo;
 
   const TodoFormWidget({
     Key key,
     this.title = '',
     this.description = '',
+    this.datetime = '',
     @required this.onChangedTitle,
     @required this.onChangedDescription,
+    @required this.onChangedDateTime,
     @required this.onSavedTodo,
   }) : super(key: key);
 
@@ -24,6 +28,8 @@ class TodoFormWidget extends StatelessWidget {
             buildTitle(),
             SizedBox(height: 8),
             buildDescription(),
+            SizedBox(height: 8),
+            buildDateTime(),
             SizedBox(height: 16),
             buildButton(),
           ],
@@ -55,6 +61,15 @@ class TodoFormWidget extends StatelessWidget {
           labelText: 'Description',
         ),
       );
+  Widget buildDateTime() => TextFormField(
+    maxLines: 2,
+    initialValue: datetime,
+    onChanged: onChangedDateTime,
+    decoration: InputDecoration(
+      border: UnderlineInputBorder(),
+      labelText: 'Date Time',
+    ),
+  );
 
   Widget buildButton() => SizedBox(
         width: double.infinity,

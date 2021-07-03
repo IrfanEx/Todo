@@ -82,6 +82,14 @@ class TodoWidget extends StatelessWidget {
                           todo.description,
                           style: TextStyle(fontSize: 20, height: 1.5),
                         ),
+                      ),
+                    if (todo.datetime.isNotEmpty)
+                      Container(
+                        margin: EdgeInsets.only(top: 4),
+                        child: Text(
+                          todo.datetime,
+                          style: TextStyle(fontSize: 20, height: 1.5),
+                        ),
                       )
                   ],
                 ),

@@ -1,15 +1,9 @@
-import 'dart:io';
+import 'package:flutter/material.dart';
+// Import the firebase_core and cloud_firestore plugin
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:path_provider/path_provider.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:todo/models/task_model.dart';
-
-class DatabaseHelper {
-  static final DatabaseHelper instance = DatabaseHelper._instance();
-  static Database _db;
-
-  DatabaseHelper._instance();
-
+class AddUser extends StatelessWidget {
   String taskTable = 'task_table';
   String colId = 'id';
   String colTitle = 'title';
@@ -17,65 +11,73 @@ class DatabaseHelper {
   String colPriority = 'priority';
   String colStatus = 'status';
 
-  // task tables
-  // Id | Title | Date | Priority | Status
-  //  0     ''     ''       ''        ''
-  //  2     ''     ''       ''        ''
-  //  3     ''     ''       ''        ''
+  AddUser(this.taskTable, this.colId, this.colTitle, this.colDate, this.colPriority, this.colStatus);
 
-  Future<Database> get db async {
-    if (_db == null) {
-      _db = await _initDb();
+  @override
+  Widget build(BuildContext context) {
+    // Create a CollectionReference called users that references the firestore collection
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    Future<void> addUser() {
+      // Call the user's CollectionReference to add a new user
+      return users
+          .add({
+        'task_table': taskTable, // John Doe
+        'id': colId, // Stokes and Sons
+        'title': colTitle,
+        'date' : colDate,
+        'priority' : colPriority,
+        'status' : colStatus
+      })
+          .then((value) => print("User Added"))
+          .catchError((error) => print("Failed to add user: $error"));
     }
-    return _db;
-  }
 
-  Future<Database> _initDb() async {
-    Directory dir = await getApplicationDocumentsDirectory();
-    String path = dir.path + 'todo_list.db';
-    final todoListDb =
-        await openDatabase(path, version: 1, onCreate: _createDb);
-    return todoListDb;
-  }
-
-  void _createDb(Database db, int version) async {
-    await db.execute(
-        'CREATE TABLE $taskTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitle TEXT, $colDate TEXT, $colPriority TEXT, $colStatus INTEGER)');
-  }
-
-  Future<List<Map<String, dynamic>>> getTaskMapList() async {
-    Database db = await this.db;
-    final List<Map<String, dynamic>> result = await db.query(taskTable);
-    return result;
-  }
-
-  Future<List<Task>> getTaskList() async {
-    final List<Map<String, dynamic>> taskMapList = await getTaskMapList();
-    final List<Task> taskList = [];
-    taskMapList.forEach((taskMap) {
-      taskList.add(Task.fromMap(taskMap));
-    });
-    taskList.sort((taskA, taskB) => taskA.date.compareTo(taskB.date));
-    return taskList;
-  }
-
-  Future<int> insertTask(Task task) async {
-    Database db = await this.db;
-    final int result = await db.insert(taskTable, task.toMap());
-    return result;
-  }
-
-  Future<int> updateTask(Task task) async {
-    Database db = await this.db;
-    final int result = await db.update(taskTable, task.toMap(),
-        where: '$colId = ?', whereArgs: [task.id]);
-    return result;
-  }
-
-  Future<int> deleteTask(int id) async {
-    Database db = await this.db;
-    final int result =
-        await db.delete(taskTable, where: '$colId = ?', whereArgs: [id]);
-    return result;
+    return TextButton(
+      onPressed: addUser,
+      child: Text(
+        "Add User",
+      ),
+    );
   }
 }
+
+
+// import 'package:flutter/material.dart';
+//
+// // Import the firebase_core and cloud_firestore plugin
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+//
+// class AddUser extends StatelessWidget {
+//   final String fullName;
+//   final String company;
+//   final int age;
+//
+//   AddUser(this.fullName, this.company, this.age);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     // Create a CollectionReference called users that references the firestore collection
+//     CollectionReference users = FirebaseFirestore.instance.collection('users');
+//
+//     Future<void> addUser() {
+//       // Call the user's CollectionReference to add a new user
+//       return users
+//           .add({
+//         'full_name': fullName, // John Doe
+//         'company': company, // Stokes and Sons
+//         'age': age // 42
+//       })
+//           .then((value) => print("User Added"))
+//           .catchError((error) => print("Failed to add user: $error"));
+//     }
+//
+//     return TextButton(
+//       onPressed: addUser,
+//       child: Text(
+//         "Add User",
+//       ),
+//     );
+//   }
+// }

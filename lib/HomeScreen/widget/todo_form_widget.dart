@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
+import 'datetime/widget/datetime_picker_widget.dart';
+
 class TodoFormWidget extends StatelessWidget {
   final String title;
   final String description;
@@ -61,15 +64,12 @@ class TodoFormWidget extends StatelessWidget {
           labelText: 'Description',
         ),
       );
-  Widget buildDateTime() => TextFormField(
-    maxLines: 2,
-    initialValue: datetime,
-    onChanged: onChangedDateTime,
-    decoration: InputDecoration(
-      border: UnderlineInputBorder(),
-      labelText: 'Date Time',
-    ),
-  );
+  Widget buildDateTime() => DatetimePickerWidget();
+  //     TextButton(
+  //   child: Text("Pick Date", style: TextStyle(color: kPrimaryColor)), onPressed: (){
+  //   DatetimePickerWidget();
+  // },
+  // );
 
   Widget buildButton() => SizedBox(
         width: double.infinity,

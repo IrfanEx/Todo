@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:todo/HomeScreen/model/todo.dart';
 import 'package:todo/HomeScreen/provider/todos.dart';
 import 'package:todo/HomeScreen/widget/todo_form_widget.dart';
+import 'package:todo/HomeScreen/widget/datetime/widget/datetime_picker_widget.dart';
+
 
 class EditTodoPage extends StatefulWidget {
   final Todo todo;
@@ -13,6 +15,7 @@ class EditTodoPage extends StatefulWidget {
   @override
   _EditTodoPageState createState() => _EditTodoPageState();
 }
+// String time = timeSet;
 
 class _EditTodoPageState extends State<EditTodoPage> {
   final _formKey = GlobalKey<FormState>();
@@ -27,7 +30,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
 
     title = widget.todo.title;
     description = widget.todo.description;
-    datetime = widget.todo.datetime;
+    datetime = datetime;
   }
 
   @override

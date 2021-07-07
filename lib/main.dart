@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:todo/Screens/Welcome/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'HomeScreen/provider/todos.dart';
-import 'HomeScreen/widget/datetime/datetimepage.dart';
 import 'constants.dart';
 
 void main() async {

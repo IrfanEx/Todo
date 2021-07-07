@@ -13,7 +13,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
-  String datetime = '';
+  DateTime datetimepicker;
 
   @override
   Widget build(BuildContext context) => AlertDialog(
@@ -35,8 +35,8 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
                 onChangedTitle: (title) => setState(() => this.title = title),
                 onChangedDescription: (description) =>
                     setState(() => this.description = description),
-                onChangedDateTime: (datetime) =>
-                    setState(() => this.datetime = datetime),
+                // onChangedDatetimepicker: (datetimepicker) =>
+                //     setState(() => this.datetimepicker = datetimepicker),
                 onSavedTodo: addTodo,
               ),
             ],
@@ -54,7 +54,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
         id: DateTime.now().toString(),
         title: title,
         description: description,
-        datetime: datetime,
+        datetimepicker: datetimepicker,
         createdTime: DateTime.now(),
       );
 

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-// import 'package:todo_app_firestore_example/utils.dart';
+import 'package:intl/intl.dart';
 import 'package:todo/HomeScreen/utils.dart';
+import 'package:todo/HomeScreen/widget/datetime/widget/datetime_picker_widget.dart';
 
 class TodoField {
   static const createdTime = 'createdTime';
@@ -11,14 +12,14 @@ class Todo {
   String title;
   String id;
   String description;
-  String datetime;
+  DateTime datetimepicker;
   bool isDone;
 
   Todo({
     @required this.createdTime,
     @required this.title,
     this.description = '',
-    this.datetime = '',
+    this.datetimepicker,
     this.id,
     this.isDone = false,
   });
@@ -27,7 +28,7 @@ class Todo {
         createdTime: Utils.toDateTime(json['createdTime']),
         title: json['title'],
         description: json['description'],
-        datetime: json['datetime'],
+        datetimepicker: json['datetimepicker'],
         id: json['id'],
         isDone: json['isDone'],
       );
@@ -36,7 +37,7 @@ class Todo {
         'createdTime': Utils.fromDateTimeToJson(createdTime),
         'title': title,
         'description': description,
-        'datetime' : datetime,
+        'datetimepicker': Utils.fromDateTimeToJson(dateTime),
         'id': id,
         'isDone': isDone,
       };

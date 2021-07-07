@@ -2,14 +2,15 @@ import 'package:todo/HomeScreen/widget/datetime/widget/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+DateTime dateTime;
 class DatetimePickerWidget extends StatefulWidget {
   @override
   _DatetimePickerWidgetState createState() => _DatetimePickerWidgetState();
 }
 
 class _DatetimePickerWidgetState extends State<DatetimePickerWidget> {
-  DateTime dateTime;
-  String timeSet;
+
+  // String timeSet;
 
   String getText() {
     if (dateTime == null) {
@@ -21,7 +22,7 @@ class _DatetimePickerWidgetState extends State<DatetimePickerWidget> {
 
   @override
   Widget build(BuildContext context) => ButtonHeaderWidget(
-        title: 'DateTime',
+        title: 'Date and Time: ',
         text: getText(),
         onClicked: () => pickDateTime(context),
       );

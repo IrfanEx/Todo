@@ -22,7 +22,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
 
   String title;
   String description;
-  String datetime;
+  // DateTime datetimepicker;
 
   @override
   void initState() {
@@ -30,7 +30,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
 
     title = widget.todo.title;
     description = widget.todo.description;
-    datetime = datetime;
+    // datetimepicker = widget.todo.datetimepicker;
   }
 
   @override
@@ -57,12 +57,12 @@ class _EditTodoPageState extends State<EditTodoPage> {
             child: TodoFormWidget(
               title: title,
               description: description,
-              datetime: datetime,
+              // datetimepicker: datetimepicker,
               onChangedTitle: (title) => setState(() => this.title = title),
               onChangedDescription: (description) =>
                   setState(() => this.description = description),
-              onChangedDateTime: (datetime) =>
-                  setState(() => this.datetime = datetime),
+              // onChangedDatetimepicker: (datetimepicker) =>
+              //     setState(() => this.datetimepicker = datetimepicker),
               onSavedTodo: saveTodo,
             ),
           ),
@@ -77,7 +77,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
     } else {
       final provider = Provider.of<TodosProvider>(context, listen: false);
 
-      provider.updateTodo(widget.todo, title, description, datetime);
+      provider.updateTodo(widget.todo, title, description, dateTime);
 
       Navigator.of(context).pop();
     }

@@ -6,20 +6,20 @@ import 'datetime/widget/datetime_picker_widget.dart';
 class TodoFormWidget extends StatelessWidget {
   final String title;
   final String description;
-  final String datetime;
+  final DateTime datetimepicker;
   final ValueChanged<String> onChangedTitle;
   final ValueChanged<String> onChangedDescription;
-  final ValueChanged<String> onChangedDateTime;
+  final ValueChanged<String> onChangedDatetimepicker;
   final VoidCallback onSavedTodo;
 
   const TodoFormWidget({
     Key key,
     this.title = '',
     this.description = '',
-    this.datetime = '',
+    this.datetimepicker, //can be a error here.
     @required this.onChangedTitle,
     @required this.onChangedDescription,
-    @required this.onChangedDateTime,
+    @required this.onChangedDatetimepicker,
     @required this.onSavedTodo,
   }) : super(key: key);
 
@@ -64,6 +64,7 @@ class TodoFormWidget extends StatelessWidget {
           labelText: 'Description',
         ),
       );
+  
   Widget buildDateTime() => DatetimePickerWidget();
   //     TextButton(
   //   child: Text("Pick Date", style: TextStyle(color: kPrimaryColor)), onPressed: (){

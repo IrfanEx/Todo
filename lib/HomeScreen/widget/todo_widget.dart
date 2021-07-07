@@ -6,6 +6,8 @@ import 'package:todo/HomeScreen/page/edit_todo_page.dart';
 import 'package:todo/HomeScreen/provider/todos.dart';
 import 'package:todo/HomeScreen/utils.dart';
 
+
+
 class TodoWidget extends StatelessWidget {
   final Todo todo;
 
@@ -83,14 +85,14 @@ class TodoWidget extends StatelessWidget {
                           style: TextStyle(fontSize: 20, height: 1.5),
                         ),
                       ),
-                    if (todo.datetime.isNotEmpty)
+                    if (todo.datetimepicker.toString().isNotEmpty)
                       Container(
                         margin: EdgeInsets.only(top: 4),
                         child: Text(
-                          todo.datetime,
+                          todo.datetimepicker.toString(),
                           style: TextStyle(fontSize: 20, height: 1.5),
                         ),
-                      )
+                      ),
                   ],
                 ),
               ),

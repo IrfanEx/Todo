@@ -65,9 +65,9 @@ class HeaderWidget extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 14,
+              // fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 8),

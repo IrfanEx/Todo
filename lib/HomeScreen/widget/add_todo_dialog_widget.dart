@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/HomeScreen/model/todo.dart';
 import 'package:todo/HomeScreen/provider/todos.dart';
+import 'package:todo/HomeScreen/widget/datetime/widget/datetime_picker_widget.dart';
 import 'package:todo/HomeScreen/widget/todo_form_widget.dart';
 
 class AddTodoDialogWidget extends StatefulWidget {
@@ -13,7 +14,8 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
-  DateTime datetimepicker;
+  // DateTime datetimepicker;
+  String datetimepicker = '';
 
   @override
   Widget build(BuildContext context) => AlertDialog(
@@ -35,8 +37,8 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
                 onChangedTitle: (title) => setState(() => this.title = title),
                 onChangedDescription: (description) =>
                     setState(() => this.description = description),
-                // onChangedDatetimepicker: (datetimepicker) =>
-                //     setState(() => this.datetimepicker = datetimepicker),
+                onChangedDatetimepicker: (datetimepicker) =>
+                    setState(() => this.datetimepicker = datetimepicker),
                 onSavedTodo: addTodo,
               ),
             ],

@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 DateTime dateTime;
+
 class DatetimePickerWidget extends StatefulWidget {
+
+  final String datefetch;
+  const DatetimePickerWidget({
+    Key key,
+    this.datefetch = '', //can be a error here.
+  }) : super(key: key);
+
   @override
   _DatetimePickerWidgetState createState() => _DatetimePickerWidgetState();
 }

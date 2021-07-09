@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:todo/HomeScreen/api/firebase_api.dart';
 import 'package:todo/HomeScreen/model/todo.dart';
+import 'package:todo/HomeScreen/widget/datetime/widget/datetime_picker_widget.dart';
 
 class TodosProvider extends ChangeNotifier {
   List<Todo> _todos = [];
@@ -27,7 +28,7 @@ class TodosProvider extends ChangeNotifier {
     return todo.isDone;
   }
 
-  void updateTodo(Todo todo, String title, String description, DateTime datetimepicker) {
+  void updateTodo(Todo todo, String title, String description, String datetimepicker) {
     todo.title = title;
     todo.description = description;
     todo.datetimepicker = datetimepicker;

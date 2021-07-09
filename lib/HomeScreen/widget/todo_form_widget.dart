@@ -6,7 +6,7 @@ import 'datetime/widget/datetime_picker_widget.dart';
 class TodoFormWidget extends StatelessWidget {
   final String title;
   final String description;
-  final DateTime datetimepicker;
+  final String datetimepicker;
   final ValueChanged<String> onChangedTitle;
   final ValueChanged<String> onChangedDescription;
   final ValueChanged<String> onChangedDatetimepicker;
@@ -16,7 +16,7 @@ class TodoFormWidget extends StatelessWidget {
     Key key,
     this.title = '',
     this.description = '',
-    this.datetimepicker, //can be a error here.
+    this.datetimepicker = '', //can be a error here.
     @required this.onChangedTitle,
     @required this.onChangedDescription,
     @required this.onChangedDatetimepicker,

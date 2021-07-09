@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:todo/HomeScreen/model/todo.dart';
-// import 'package:todo_app_firestore_example/utils.dart';
 import 'package:todo/HomeScreen/utils.dart';
 
 class FirebaseApi {

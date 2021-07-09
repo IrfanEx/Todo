@@ -12,7 +12,7 @@ class Todo {
   String title;
   String id;
   String description;
-  DateTime datetimepicker;
+  String datetimepicker;
   bool isDone;
 
   Todo({
@@ -28,7 +28,7 @@ class Todo {
         createdTime: Utils.toDateTime(json['createdTime']),
         title: json['title'],
         description: json['description'],
-        datetimepicker: json['datetimepicker'],
+        datetimepicker: json['dateTime'],
         id: json['id'],
         isDone: json['isDone'],
       );
@@ -37,7 +37,7 @@ class Todo {
         'createdTime': Utils.fromDateTimeToJson(createdTime),
         'title': title,
         'description': description,
-        'datetimepicker': Utils.fromDateTimeToJson(dateTime),
+        'datetimepicker': dateTime,
         'id': id,
         'isDone': isDone,
       };

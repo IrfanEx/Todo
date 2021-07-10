@@ -19,32 +19,32 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-        content: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Add Todo',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
-              ),
-              const SizedBox(height: 8),
-              TodoFormWidget(
-                onChangedTitle: (title) => setState(() => this.title = title),
-                onChangedDescription: (description) =>
-                    setState(() => this.description = description),
-                onChangedDatetimepicker: (datetimepicker) =>
-                    setState(() => this.datetimepicker = datetimepicker),
-                onSavedTodo: addTodo,
-              ),
-            ],
+    content: Form(
+      key: _formKey,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Add Todo',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
+            ),
           ),
-        ),
-      );
+          const SizedBox(height: 8),
+          TodoFormWidget(
+            onChangedTitle: (title) => setState(() => this.title = title),
+            onChangedDescription: (description) =>
+                setState(() => this.description = description),
+            onChangedDatetimepicker: (datetimepicker) =>
+                setState(() => this.datetimepicker = datetimepicker),
+            onSavedTodo: addTodo,
+          ),
+        ],
+      ),
+    ),
+  );
 
   void addTodo() {
     final isValid = _formKey.currentState.validate();
@@ -56,7 +56,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
         id: DateTime.now().toString(),
         title: title,
         description: description,
-        datetimepicker: datetimepicker,
+        datetimepicker: datetimepicker=dateTime.toString(),
         createdTime: DateTime.now(),
       );
 

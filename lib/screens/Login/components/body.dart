@@ -65,6 +65,7 @@ class Body extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
+
                   }
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(

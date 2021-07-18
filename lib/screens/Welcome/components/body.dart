@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/Screens/Login/login_screen.dart';
 import 'package:todo/Screens/Signup/signup_screen.dart';
 import 'package:todo/Screens/Welcome/components/background.dart';
-import 'package:todo/components/rounded_button.dart';
+import 'package:todo/screens/components/rounded_button.dart';
 import 'package:todo/constants.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -18,7 +18,7 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Text(
               "Welcome to ToDo List App",
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurple),
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
             SizedBox(height: size.height * 0.05),
             SvgPicture.asset(

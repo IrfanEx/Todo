@@ -4,19 +4,23 @@ import 'package:todo/constants.dart';
 import 'package:todo/screens/Forget_Password/forget_password.dart';
 import 'background.dart';
 import 'package:todo/Screens/Signup/signup_screen.dart';
-import 'package:todo/components/already_have_an_account_acheck.dart';
-import 'package:todo/components/rounded_button.dart';
-import 'package:todo/components/rounded_input_field.dart';
-import 'package:todo/components/rounded_password_field.dart';
+import 'package:todo/screens/components/already_have_an_account_acheck.dart';
+import 'package:todo/screens/components/rounded_button.dart';
+import 'package:todo/screens/components/rounded_input_field.dart';
+import 'package:todo/screens/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({
     Key key,
   }) : super(key: key);
 
+  @override
+  _BodyState createState() => _BodyState();
+}
 
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     final _auth = FirebaseAuth.instance;

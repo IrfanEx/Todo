@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:todo/screens/Login/login_screen.dart';
 import 'background.dart';
 import 'package:todo/Screens/Signup/signup_screen.dart';
-import 'package:todo/components/already_have_an_account_acheck.dart';
-import 'package:todo/components/rounded_button.dart';
-import 'package:todo/components/rounded_input_field.dart';
+import 'package:todo/screens/components/already_have_an_account_acheck.dart';
+import 'package:todo/screens/components/rounded_button.dart';
+import 'package:todo/screens/components/rounded_input_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

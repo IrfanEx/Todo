@@ -9,12 +9,10 @@ class AddTodoDialogWidget extends StatefulWidget {
   @override
   _AddTodoDialogWidgetState createState() => _AddTodoDialogWidgetState();
 }
-
 class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
-  // DateTime datetimepicker;
   String datetimepicker = '';
 
   @override

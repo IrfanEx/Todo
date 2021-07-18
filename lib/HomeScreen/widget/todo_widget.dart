@@ -5,7 +5,6 @@ import 'package:todo/HomeScreen/model/todo.dart';
 import 'package:todo/HomeScreen/page/edit_todo_page.dart';
 import 'package:todo/HomeScreen/provider/todos.dart';
 import 'package:todo/HomeScreen/utils.dart';
-import 'package:todo/HomeScreen/widget/datetime/widget/datetime_picker_widget.dart';
 
 
 class TodoWidget extends StatelessWidget {
@@ -74,7 +73,7 @@ class TodoWidget extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor,
-                        fontSize: 22,
+                        fontSize: 25,
                       ),
                     ),
                     if (todo.description.isNotEmpty)
@@ -91,7 +90,7 @@ class TodoWidget extends StatelessWidget {
                         child: Text(
                           // todo.datetimepicker.toString(),
                           todo.datetimepicker.toString(),
-                          style: TextStyle(fontSize: 20, height: 1.5),
+                          style: TextStyle(fontSize: 16, height: 1.5),
                         ),
                       ),
                   ],

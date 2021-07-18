@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/HomeScreen/model/todo.dart';
 import 'package:todo/HomeScreen/provider/todos.dart';
-import 'package:todo/HomeScreen/widget/todo_form_widget.dart';
 import 'package:todo/HomeScreen/widget/datetime/widget/datetime_picker_widget.dart';
+import 'package:todo/HomeScreen/widget/todo_form_widget.dart';
 
 
 class EditTodoPage extends StatefulWidget {
@@ -62,7 +62,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
               onChangedDescription: (description) =>
                   setState(() => this.description = description),
               onChangedDatetimepicker: (datetimepicker) =>
-                  setState(() => this.datetimepicker = datetimepicker),
+                  setState(() => this.datetimepicker = dateTime.toString()),
               onSavedTodo: saveTodo,
             ),
           ),
@@ -77,7 +77,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
     } else {
       final provider = Provider.of<TodosProvider>(context, listen: false);
 
-      provider.updateTodo(widget.todo, title, description, datetimepicker);
+      provider.updateTodo(widget.todo, title, description, dateTime.toString());
 
       Navigator.of(context).pop();
     }

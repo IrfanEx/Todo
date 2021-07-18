@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/Screens/Welcome/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -6,6 +7,10 @@ import 'HomeScreen/provider/todos.dart';
 import 'constants.dart';
 
 void main() async {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.black, // navigation bar color
+    statusBarColor: Colors.indigo, // status bar color
+  ));
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
@@ -22,8 +27,8 @@ class MyApp extends StatelessWidget {
       title: title,
       theme: ThemeData(
         primaryColor: kPrimaryColor,
-        primarySwatch: Colors.pink,
-        scaffoldBackgroundColor: Color(0xFFf6f5ee),
+        primarySwatch: Colors.purple,
+        scaffoldBackgroundColor: Color(0xFF3450a1),
       ),
       home: WelcomeScreen(),
     ),

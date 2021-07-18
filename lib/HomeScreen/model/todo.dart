@@ -1,12 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:intl/intl.dart';
 import 'package:todo/HomeScreen/utils.dart';
-import 'package:todo/HomeScreen/widget/datetime/widget/datetime_picker_widget.dart';
 
 class TodoField {
   static const createdTime = 'createdTime';
 }
-
+final FirebaseAuth auth = FirebaseAuth.instance;
 class Todo {
   DateTime createdTime;
   String title;
@@ -14,7 +13,6 @@ class Todo {
   String description;
   String datetimepicker;
   bool isDone;
-
 
   Todo({
     @required this.createdTime,

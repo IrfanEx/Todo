@@ -30,6 +30,7 @@ class TodosProvider extends ChangeNotifier {
   void updateTodo(Todo todo, String title, String description, String datetimepicker) {
     todo.title = title;
     todo.description = description;
+    // todo.priority = priority;
     todo.datetimepicker = datetimepicker;
 
     FirebaseApi.updateTodo(todo);

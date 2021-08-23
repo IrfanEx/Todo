@@ -27,6 +27,7 @@ class _BodyState extends State<Body> {
     String email;
     String password;
 
+
     Size size = MediaQuery.of(context).size;
     return Background(
       child: SingleChildScrollView(

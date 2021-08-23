@@ -9,40 +9,45 @@ class AddTodoDialogWidget extends StatefulWidget {
   @override
   _AddTodoDialogWidgetState createState() => _AddTodoDialogWidgetState();
 }
+
 class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
+  // String priority = '';
   String datetimepicker = '';
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-    content: Form(
-      key: _formKey,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Add Todo',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-            ),
+        scrollable: true,
+        content: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Add Todo',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
+              ),
+              const SizedBox(height: 8),
+              TodoFormWidget(
+                onChangedTitle: (title) => setState(() => this.title = title),
+                onChangedDescription: (description) =>
+                    setState(() => this.description = description),
+                // onChangedPriority: (priority) =>
+                //     setState(() => this.priority = priority),
+                onChangedDatetimepicker: (datetimepicker) =>
+                    setState(() => this.datetimepicker = datetimepicker),
+                onSavedTodo: addTodo,
+              ),
+            ],
           ),
-          const SizedBox(height: 8),
-          TodoFormWidget(
-            onChangedTitle: (title) => setState(() => this.title = title),
-            onChangedDescription: (description) =>
-                setState(() => this.description = description),
-            onChangedDatetimepicker: (datetimepicker) =>
-                setState(() => this.datetimepicker = datetimepicker),
-            onSavedTodo: addTodo,
-          ),
-        ],
-      ),
-    ),
-  );
+        ),
+      );
 
   void addTodo() {
     final isValid = _formKey.currentState.validate();
@@ -54,7 +59,8 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
         id: DateTime.now().toString(),
         title: title,
         description: description,
-        datetimepicker: datetimepicker=dateTime.toString(),
+        // priority: priority,
+        datetimepicker: datetimepicker = dateTime.toString(),
         createdTime: DateTime.now(),
       );
 

@@ -9,6 +9,10 @@ import 'package:todo/HomeScreen/widget/completed_list_widget.dart';
 import 'package:todo/HomeScreen/widget/todo_list_widget.dart';
 import 'package:todo/main.dart';
 
+// String userID;
+// String valueChoose;
+// List listItem = ["Low","Medium","High"];
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -19,22 +23,23 @@ class _HomePageState extends State<HomePage> {
 
   Future<bool> _onWillPop() async {
     return (await showDialog(
-      context: context,
-      builder: (context) => new AlertDialog(
-        title: new Text('Are you sure?'),
-        content: new Text('Do you want to exit an App'),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: new Text('No'),
+          context: context,
+          builder: (context) => new AlertDialog(
+            title: new Text('Are you sure?'),
+            content: new Text('Do you want to exit an App'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: new Text('No'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: new Text('Yes'),
+              ),
+            ],
           ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: new Text('Yes'),
-          ),
-        ],
-      ),
-    )) ?? false;
+        )) ??
+        false;
   }
 
   @override
@@ -60,7 +65,6 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(Icons.close))
           ],
         ),
-
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Theme.of(context).primaryColor,
           unselectedItemColor: Colors.white.withOpacity(0.7),
@@ -91,10 +95,9 @@ class _HomePageState extends State<HomePage> {
                   return buildText('Something Went Wrong Try later');
                 } else {
                   final todos = snapshot.data;
-
                   final provider = Provider.of<TodosProvider>(context);
                   provider.setTodos(todos);
-
+                  // userID = snapshot.data.single.id;
                   return tabs[selectedIndex];
                 }
             }

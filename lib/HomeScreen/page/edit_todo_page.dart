@@ -15,13 +15,14 @@ class EditTodoPage extends StatefulWidget {
   @override
   _EditTodoPageState createState() => _EditTodoPageState();
 }
-// String time = timeSet;
+
 
 class _EditTodoPageState extends State<EditTodoPage> {
   final _formKey = GlobalKey<FormState>();
 
   String title;
   String description;
+  // String priority;
   String datetimepicker;
 
   @override
@@ -30,6 +31,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
 
     title = widget.todo.title;
     description = widget.todo.description;
+    // priority = widget.todo.priority;
     datetimepicker = widget.todo.datetimepicker;
   }
 
@@ -57,10 +59,13 @@ class _EditTodoPageState extends State<EditTodoPage> {
             child: TodoFormWidget(
               title: title,
               description: description,
+              // priority: priority,
               datetimepicker: datetimepicker,
               onChangedTitle: (title) => setState(() => this.title = title),
               onChangedDescription: (description) =>
                   setState(() => this.description = description),
+              // onChangedPriority: (priority) =>
+              //     setState(() => this.priority = priority),
               onChangedDatetimepicker: (datetimepicker) =>
                   setState(() => this.datetimepicker = dateTime.toString()),
               onSavedTodo: saveTodo,

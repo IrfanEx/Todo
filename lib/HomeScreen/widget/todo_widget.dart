@@ -84,6 +84,14 @@ class TodoWidget extends StatelessWidget {
                           style: TextStyle(fontSize: 20, height: 1.5),
                         ),
                       ),
+                    // if (todo.priority.isNotEmpty)
+                    //   Container(
+                    //     margin: EdgeInsets.only(top: 4),
+                    //     child: Text(
+                    //       todo.priority,
+                    //       style: TextStyle(fontSize: 20, height: 1.5),
+                    //     ),
+                    //   ),
                     if (todo.datetimepicker.toString().isNotEmpty)
                       Container(
                         margin: EdgeInsets.only(top: 4),
